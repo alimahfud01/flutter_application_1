@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Screen19 extends StatefulWidget {
@@ -35,13 +33,13 @@ class _Screen19State extends State<Screen19> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("App Bar")),
+        appBar: AppBar(title: const Text("App Bar")),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 child: TextField(
                   controller: controller,
                   decoration: InputDecoration(
@@ -61,7 +59,7 @@ class _Screen19State extends State<Screen19> {
                   onPressed: () {
                     saveData();
                   },
-                  child: Text("Save")),
+                  child: const Text("Save")),
               ElevatedButton(
                   onPressed: () {
                     getName().then((value) {
@@ -73,7 +71,7 @@ class _Screen19State extends State<Screen19> {
                       setState(() {});
                     });
                   },
-                  child: Text("Load"))
+                  child: const Text("Load"))
             ],
           ),
         ),

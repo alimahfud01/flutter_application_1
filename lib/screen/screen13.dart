@@ -41,6 +41,8 @@ class _Screen13State extends State<Screen13> {
                   ),
                 ),
                 //obscureText: true,
+                // enableSuggestions: false,
+                // autocorrect: false,
                 //maxLength: 5,
                 maxLines: 1,
                 onChanged: (value) {

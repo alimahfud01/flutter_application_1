@@ -14,7 +14,7 @@ class GetListUser {
   }
 
   static Future<List<GetListUser>> connectToApi(String id) async {
-    String apiURL = "https://reqres.in/api/users?page=" + id;
+    String apiURL = "https://reqres.in/api/users?page=$id";
 
     var apiResult = await http.get(Uri.parse(apiURL));
     var jsonObject = json.decode(apiResult.body);

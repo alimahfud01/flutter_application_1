@@ -1,7 +1,4 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_application_1/screen/screen10.dart';
 import 'package:flutter_application_1/screen/screen11.dart';
 import 'package:flutter_application_1/screen/screen12.dart';
@@ -15,6 +12,7 @@ import 'package:flutter_application_1/screen/screen19.dart';
 import 'package:flutter_application_1/screen/screen2.dart';
 import 'package:flutter_application_1/screen/screen20.dart';
 import 'package:flutter_application_1/screen/screen21.dart';
+import 'package:flutter_application_1/screen/screen22.dart';
 import 'package:flutter_application_1/screen/screen3.dart';
 import 'package:flutter_application_1/screen/screen4.dart';
 import 'package:flutter_application_1/screen/screen5.dart';
@@ -24,10 +22,12 @@ import 'package:flutter_application_1/screen/screen8.dart';
 import 'package:flutter_application_1/screen/screen9.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -46,13 +46,13 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Aplikasi Hello World")),
+      appBar: AppBar(title: const Text("Aplikasi Hello World")),
       body: ListView(
         children: <Widget>[
           Container(
             alignment: Alignment.center,
-            margin: EdgeInsets.only(top: 20),
-            child: Text("List Fitur", style: TextStyle(fontSize: 25)),
+            margin: const EdgeInsets.only(top: 20),
+            child: const Text("List Fitur", style: TextStyle(fontSize: 25)),
           ),
           ElevatedButton(
             onPressed: () {
@@ -146,9 +146,9 @@ class HomeScreen extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              _navigateToScreen(context, () => Screen17());
+              _navigateToScreen(context, () => const Screen17());
             },
-            child: Text("Consume API"),
+            child: const Text("Consume API"),
           ),
           ElevatedButton(
             onPressed: () {
@@ -176,9 +176,9 @@ class HomeScreen extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              _navigateToScreen(context, () => Screen15());
+              _navigateToScreen(context, () => Screen22());
             },
-            child: Text(""),
+            child: Text("BLoC"),
           ),
           ElevatedButton(
             onPressed: () {

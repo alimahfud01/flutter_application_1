@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_1/model/get_list_user_model.dart';
 import 'package:flutter_application_1/model/get_user_model.dart';
 import 'package:flutter_application_1/model/post_result_model.dart';
@@ -28,8 +27,8 @@ class _Screen17State extends State<Screen17> {
         length: 4,
         child: Scaffold(
           appBar: AppBar(
-            title: Text("Consume API"),
-            bottom: TabBar(
+            title: const Text("Consume API"),
+            bottom: const TabBar(
               tabs: [
                 Tab(icon: Icon(Icons.alarm), text: "Post"),
                 Tab(icon: Icon(Icons.alarm), text: "Get"),
@@ -44,11 +43,7 @@ class _Screen17State extends State<Screen17> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text((postResult != null)
-                      ? (postResult!.id! +
-                          " | " +
-                          postResult!.name! +
-                          " | " +
-                          postResult!.job!)
+                      ? ("${postResult!.id!} | ${postResult!.name!} | ${postResult!.job!}")
                       : "Tidak ada data"),
                   ElevatedButton(
                       onPressed: () {
@@ -57,7 +52,7 @@ class _Screen17State extends State<Screen17> {
                           setState(() {});
                         });
                       },
-                      child: Text("POST"))
+                      child: const Text("POST"))
                 ],
               ),
             ),
@@ -66,7 +61,7 @@ class _Screen17State extends State<Screen17> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text((getUser != null)
-                      ? (getUser!.id! + " | " + getUser!.name!)
+                      ? ("${getUser!.id!} | ${getUser!.name!}")
                       : "Tidak ada data"),
                   ElevatedButton(
                       onPressed: () {
@@ -75,7 +70,7 @@ class _Screen17State extends State<Screen17> {
                           setState(() {});
                         });
                       },
-                      child: Text("Get"))
+                      child: const Text("Get"))
                 ],
               ),
             ),
@@ -90,15 +85,12 @@ class _Screen17State extends State<Screen17> {
                       onPressed: () {
                         GetListUser.connectToApi("2").then((value) {
                           for (int i = 0; i < value.length; i++) {
-                            getListUser = getListUser +
-                                "[ " +
-                                value[i].name.toString() +
-                                "]";
+                            getListUser = "$getListUser[ ${value[i].name}]";
                           }
                           setState(() {});
                         });
                       },
-                      child: Text("Get List"))
+                      child: const Text("Get List"))
                 ],
               ),
             ),
@@ -106,6 +98,7 @@ class _Screen17State extends State<Screen17> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  // ignore: unnecessary_null_comparison
                   Text((putUser != null)
                       ? (putUser.toString())
                       : "Tidak ada data"),
@@ -113,15 +106,12 @@ class _Screen17State extends State<Screen17> {
                       onPressed: () {
                         PutUser.connectToAPI("morpheus", "zion resident")
                             .then((value) {
-                          putUser = value.name.toString() +
-                              " " +
-                              value.job.toString() +
-                              " " +
-                              value.updatedAt.toString();
+                          putUser =
+                              "${value.name} ${value.job} ${value.updatedAt}";
                           setState(() {});
                         });
                       },
-                      child: Text("Put User"))
+                      child: const Text("Put User"))
                 ],
               ),
             ),
